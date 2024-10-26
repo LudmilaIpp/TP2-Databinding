@@ -1,0 +1,26 @@
+<h2>Gestión de Pokémon</h2>
+
+<!-- Formulario para agregar un nuevo Pokémon -->
+<form (ngSubmit)="addPokemon()" class="pokemon-form">
+  <h3>Agregar Nuevo Pokémon</h3>
+  <label for="nombre">Nombre:</label>
+  <input type="text" id="nombre" [(ngModel)]="newPokemon.nombre" name="nombre" required />
+
+  <label for="tipo">Tipo:</label>
+  <input type="text" id="tipo" [(ngModel)]="newPokemon.tipo" name="tipo" required />
+
+  <button type="submit">Agregar Pokémon</button>
+</form>
+
+<!-- Lista de Pokémon -->
+<div class="pokemon-list">
+  <h3>Lista de Pokémon</h3>
+  <ul>
+    <li *ngFor="let pokemon of pokemones" class="pokemon-item">
+      <span><strong>Nombre:</strong> {{ pokemon.nombre }}</span>
+      <span><strong>Tipo:</strong> {{ pokemon.tipo }}</span>
+      <button (click)="deletePokemon(pokemon.nombre)">Eliminar</button>
+    </li>
+  </ul>
+</div>
+
